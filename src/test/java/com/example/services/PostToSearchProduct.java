@@ -13,7 +13,7 @@ public class PostToSearchProduct extends Globals {
         response=RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .queryParam("search_product","jeans")
+                .queryParam("search_product","jean")
                 .and()
                 .when()
                 .post("/api/searchProduct")
@@ -22,9 +22,9 @@ public class PostToSearchProduct extends Globals {
     }
     public void validateProductsSearched(){
 
-        JsonPath jsonPath=response.jsonPath();
+        //JsonPath jsonPath=response.jsonPath();
         Assert.assertEquals(200,response.jsonPath().getInt("responseCode"));
-        Assert.assertEquals("Searched products list",response.jsonPath().getString("responseJson"));
+        Assert.assertEquals("Searched products list",response.jsonPath().getString("message"));
     }
 
 }
