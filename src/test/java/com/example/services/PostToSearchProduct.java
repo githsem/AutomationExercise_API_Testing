@@ -16,8 +16,8 @@ public class PostToSearchProduct extends Globals {
 
         response=RestAssured.given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .body("{\"search_product\": \"top\"}")
+                .contentType(ContentType.MULTIPART)
+                .multiPart("search_product","jean")
                 .and()
                 .when()
                 .post("/api/searchProduct")
@@ -26,21 +26,9 @@ public class PostToSearchProduct extends Globals {
     }
     public void validateProductsSearched(){
 
-        Assert.assertEquals(200,response.statusCode());
-
-       // Map<String,List<String>> jeanList=new HashMap<>();
-       // jeanList= (Map<String, List<String>>) response.jsonPath().getList("products.name"));
-        Assert.assertEquals("Searched products list",response.jsonPath().getString("message"));
-
-
-      /*  int statusCode = response.getStatusCode();
-        System.out.println("Durum Kodu: " + statusCode);
-
-        // Yanıtı JSON formatında alın
-        String responseBody = response.getBody().asString();
-        System.out.println("Yanıt JSON: " + responseBody);
-
-       */
+        Assert.assertEquals(200,response.jsonPath().getInt("responseCode"));
+        List<Map> jeanProductsList=response.jsonPath().getList("products");
+        Assert.assertEquals(3,jeanProductsList.size());
 
 
     }
