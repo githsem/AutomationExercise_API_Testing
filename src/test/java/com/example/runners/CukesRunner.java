@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
         plugin = {
                 "html:target/default-html-reports.html"
         },
-        dryRun = false,
-        tags = "wip"
+        dryRun = true,
+        tags = "@api5"
 )
 public class CukesRunner {
 }
