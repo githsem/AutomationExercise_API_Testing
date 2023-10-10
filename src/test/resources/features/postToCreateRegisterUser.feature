@@ -1,5 +1,5 @@
 Feature: Post To Create And Register User
-@wip
+@api11
   Scenario: API Test 11
     When Create And Register User
     Then Validate that new user are registered

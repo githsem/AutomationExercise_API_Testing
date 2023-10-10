@@ -1,7 +1,6 @@
 package com.example.services;
 
 import com.example.utilities.Globals;
-import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.Test;
@@ -11,7 +10,7 @@ public class PostToCreateRegisterUser extends Globals {
 
 
    @Test
-    public void postCreateRegisterUser() {
+    public void postToCreateRegisterUser() {
         // API Base URL
         RestAssured.baseURI = "https://automationexercise.com";
 
