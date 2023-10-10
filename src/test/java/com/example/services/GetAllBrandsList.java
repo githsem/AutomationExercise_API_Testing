@@ -18,7 +18,7 @@ public class GetAllBrandsList extends Globals {
     public void validateThatAllBrands() {
         Assert.assertEquals(200, response.statusCode());
         List<Map> brands = response.jsonPath().getList("brands");
-        System.out.println("brands.size() = " + brands.size());
+        Assert.assertEquals(34,brands.size());
        // Assert.assertEquals("Madame", brands.get(2).get("brand"));
     }
 }
