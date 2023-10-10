@@ -1,5 +1,5 @@
 Feature: Account Deletion
-@wip
+@api12
   Scenario: Delete an account with valid credentials
     Given the base URL is "https://automationexercise.com"
     And the API endpoint is "/api/deleteAccount"
