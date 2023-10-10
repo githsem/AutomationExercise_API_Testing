@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports.html"
         },
         dryRun = false,
-        tags = "@api10"
+        tags = "wip"
 )
 public class CukesRunner {
 }
