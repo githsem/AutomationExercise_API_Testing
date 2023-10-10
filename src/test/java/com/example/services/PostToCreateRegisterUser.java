@@ -39,17 +39,30 @@ public class PostToCreateRegisterUser extends Globals {
         String apiEndpoint = "/api/createAccount";
 
         // Perform API request and validate response
-        RestAssured.given()
-                .contentType(ContentType.JSON)
-                .body(requestBody)
+        response= RestAssured.given()
+                .contentType(ContentType.MULTIPART)
+                .multiPart("name", "Ahmet")
+                .multiPart("email", "ahmetwd@dr.com")
+                .multiPart("password", "Ahmet123")
+                .multiPart("title", "Mr")
+                .multiPart("birth_date", "10")
+                .multiPart("birth_month", "12")
+                .multiPart("birth_year", "1983")
+                .multiPart("firstname", "Ahmet")
+                .multiPart("lastname", "Kara")
+                .multiPart("company", "Technox")
+                .multiPart("address1", "Saint Antuan")
+                .multiPart("address2", "CL")
+                .multiPart("country", "Canada")
+                .multiPart("zipcode", "25478")
+                .multiPart("state", "Canada")
+                .multiPart("city", "Toronto")
+                .multiPart("mobile_number", "32452168")
                 .when()
-                .post(apiEndpoint)
-                .then()
-                .statusCode(201)
-                .statusLine("User created!");
+                .post(apiEndpoint);
+
+       System.out.println("response = " + response);
 
 
-
-
-    }
+   }
 }

@@ -1,33 +1,36 @@
 package com.example.services;
+import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.Assert;
 import org.testng.annotations.Test;
-public class DeleteUserAccount {
+public class DeleteUserAccount extends Globals {
 
 
-        @Test
+
         public void DeleteUserAccountApi() {
-            // API Base URL
-            RestAssured.baseURI = "https://automationexercise.com";
+
 
             // Request Parameters
-            String email = "johndoe@example.com";
-            String password = "securepassword";
+            String email = "ahmetwd@dr.com";
+            String password = "Ahmet123";
 
             // API Endpoint
             String apiEndpoint = "/api/deleteAccount";
 
             // Perform API request and validate response
-            RestAssured.given()
-                    .contentType(ContentType.URLENC)
-                    .formParam("email", email)
-                    .formParam("password", password)
+            response= RestAssured.given()
+                    .contentType(ContentType.MULTIPART)
+                    .multiPart("email", email)
+                    .multiPart("password", password)
                     .when()
-                    .delete(apiEndpoint)
-                    .then()
-                    .statusCode(200)
-                    .statusLine("Account deleted!");
+                    .delete(apiEndpoint);
 
+        }
+
+        public void verifyAccountUser(){
+            Assert.assertEquals(200, response.jsonPath().getInt("responseCode"));
+            Assert.assertEquals("Account deleted!", response.jsonPath().getString("message"));
         }
     }
 
