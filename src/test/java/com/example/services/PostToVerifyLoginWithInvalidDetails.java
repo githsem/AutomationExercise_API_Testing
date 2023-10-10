@@ -12,17 +12,17 @@ public class PostToVerifyLoginWithInvalidDetails extends Globals {
     public void postToVerifyLoginWithInvalidDetails(){
         response= RestAssured.given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
-                .queryParam("email","b@aa.com")
+                .contentType(ContentType.MULTIPART)
+                .multiPart("email","b@aa.com")
                 .and()
-                .queryParam("password","1234")
+                .multiPart("password","1234")
                 .when()
                 .post("/api/verifyLogin");
 
     }
     public void validateLoginWithInvalidDetails(){
-        Assert.assertEquals(400,response.jsonPath().getInt("responseCode"));
-        Assert.assertEquals("Bad request, email or password parameter is missing in POST request.",response.jsonPath().getString("message"));
+        Assert.assertEquals(404,response.jsonPath().getInt("responseCode"));
+        Assert.assertEquals("User not found!",response.jsonPath().getString("message"));
 
     }
 }
