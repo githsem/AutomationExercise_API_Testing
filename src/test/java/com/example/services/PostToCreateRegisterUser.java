@@ -42,8 +42,8 @@ public class PostToCreateRegisterUser extends Globals {
         response= RestAssured.given()
                 .contentType(ContentType.MULTIPART)
                 .multiPart("name", "Ahmet")
-                .multiPart("email", "ahmetwd@dr.com")
-                .multiPart("password", "Ahmet123")
+                .multiPart("email", "ahmetwd@drm.com")
+                .multiPart("password", "Ahmet12345")
                 .multiPart("title", "Mr")
                 .multiPart("birth_date", "10")
                 .multiPart("birth_month", "12")
@@ -60,9 +60,6 @@ public class PostToCreateRegisterUser extends Globals {
                 .multiPart("mobile_number", "32452168")
                 .when()
                 .post(apiEndpoint);
-
-       System.out.println("response = " + response);
-
 
    }
 }
