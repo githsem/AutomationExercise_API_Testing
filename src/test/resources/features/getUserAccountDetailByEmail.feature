@@ -1,3 +1,4 @@
+@Regression
 Feature: GET user account detail by email
 
   @api14

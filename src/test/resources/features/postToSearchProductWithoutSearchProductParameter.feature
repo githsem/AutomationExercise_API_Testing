@@ -1,3 +1,4 @@
+@Regression
 Feature: Post To Search Product Without Parameter
 
   @api5

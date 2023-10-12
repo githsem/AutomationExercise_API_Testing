@@ -16,8 +16,8 @@ public class PostToCreateRegisterUser extends Globals {
 
         // JSON Request Body
         String requestBody = "{"
-                + "\"name\":\"John Dorec\","
-                + "\"email\":\"johndorec@example.com\","
+                + "\"name\":\"John Doreca\","
+                + "\"email\":\"johndorecaa@example.com\","
                 + "\"password\":\"securedpassword\","
                 + "\"title\":\"Mr\","
                 + "\"birth_date\":\"01\","
@@ -41,9 +41,9 @@ public class PostToCreateRegisterUser extends Globals {
         // Perform API request and validate response
         response= RestAssured.given()
                 .contentType(ContentType.MULTIPART)
-                .multiPart("name", "Ahmet")
-                .multiPart("email", "ahmetwd@drm.com")
-                .multiPart("password", "Ahmet12345")
+                .multiPart("name", "Ahmetz")
+                .multiPart("email", "ahmetwdz@drm.com")
+                .multiPart("password", "Ahmet12345z")
                 .multiPart("title", "Mr")
                 .multiPart("birth_date", "10")
                 .multiPart("birth_month", "12")

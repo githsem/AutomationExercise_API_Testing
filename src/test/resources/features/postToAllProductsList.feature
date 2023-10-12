@@ -1,3 +1,4 @@
+@Regression
 Feature: Post To All Products List
 
   @api2
