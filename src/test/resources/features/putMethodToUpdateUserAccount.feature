@@ -1,3 +1,4 @@
+@Regression
 Feature: PUT Method To Update User Account
 
   @api13

@@ -1,3 +1,4 @@
+@Regression
 Feature: Post To Create And Register User
 @api11
   Scenario: API Test 11

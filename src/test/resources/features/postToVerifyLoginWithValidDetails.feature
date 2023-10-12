@@ -1,3 +1,4 @@
+@Regression
 Feature: Post TO Verify Login
   @api7
   Scenario: API 7

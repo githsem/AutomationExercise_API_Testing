@@ -1,3 +1,4 @@
+@Regression
 Feature: Get All Products List
 
   Scenario: API Test 1

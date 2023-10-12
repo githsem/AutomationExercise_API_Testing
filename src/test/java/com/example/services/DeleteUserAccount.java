@@ -12,8 +12,8 @@ public class DeleteUserAccount extends Globals {
 
 
             // Request Parameters
-            String email = "ahmetwd@dr.com";
-            String password = "Ahmet123";
+            String email = "ahmetwdy@drm.com";
+            String password = "Ahmet12345y";
 
             // API Endpoint
             String apiEndpoint = "/api/deleteAccount";

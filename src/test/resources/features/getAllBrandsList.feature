@@ -1,3 +1,4 @@
+@Regression
 Feature: Get All Brands List
   @api3
   Scenario: API Test 3

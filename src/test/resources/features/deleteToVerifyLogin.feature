@@ -1,3 +1,4 @@
+@Regression
 Feature: DELETE To Verify Login
 
   @api9
