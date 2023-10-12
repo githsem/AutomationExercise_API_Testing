@@ -6,14 +6,15 @@ import io.cucumber.java.en.When;
 
 public class PostToVerifyLoginWithoutEmailParameter_stepDefs {
 
-    PostToVerifyLoginWithoutEmail postToVerifyLoginWithoutEmail=new PostToVerifyLoginWithoutEmail();
+    PostToVerifyLoginWithoutEmail postToVerifyLoginWithoutEmail = new PostToVerifyLoginWithoutEmail();
 
     @When("Post to login without email")
     public void post_to_login_without_email() {
         postToVerifyLoginWithoutEmail.postToVerifyLoginWithoutEmail();
     }
+
     @Then("Verify that invalid result")
     public void verify_that_invalid_result() {
-    postToVerifyLoginWithoutEmail.verifyLoginWithInvalidDetails();
+        postToVerifyLoginWithoutEmail.verifyLoginWithInvalidDetails();
     }
 }

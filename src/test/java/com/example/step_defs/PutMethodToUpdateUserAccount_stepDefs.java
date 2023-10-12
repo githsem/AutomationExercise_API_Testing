@@ -12,6 +12,7 @@ public class PutMethodToUpdateUserAccount_stepDefs {
     public void put_to_account() {
         putMethodToUpdateUserAccount.updateAccount();
     }
+
     @Then("Validate that user updated")
     public void validate_that_user_updated() {
         putMethodToUpdateUserAccount.validateUSerUpdated();

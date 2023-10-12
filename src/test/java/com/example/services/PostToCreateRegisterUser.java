@@ -1,49 +1,34 @@
 package com.example.services;
 
+import com.example.utilities.ConfigurationReader;
 import com.example.utilities.Globals;
+import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.junit.Test;
+import org.junit.Assert;
 
 
 public class PostToCreateRegisterUser extends Globals {
 
 
-   @Test
     public void postToCreateRegisterUser() {
+
+        Faker faker = new Faker();
+        ConfigurationReader.set("userName", faker.name().firstName());
+        ConfigurationReader.set("email", faker.internet().emailAddress());
+        ConfigurationReader.set("password", "Ac!2" + faker.internet().password());
+
         // API Base URL
         RestAssured.baseURI = "https://automationexercise.com";
-
-        // JSON Request Body
-        String requestBody = "{"
-                + "\"name\":\"John Doreca\","
-                + "\"email\":\"johndorecaa@example.com\","
-                + "\"password\":\"securedpassword\","
-                + "\"title\":\"Mr\","
-                + "\"birth_date\":\"01\","
-                + "\"birth_month\":\"01\","
-                + "\"birth_year\":\"1990\","
-                + "\"firstname\":\"John\","
-                + "\"lastname\":\"Dorec\","
-                + "\"company\":\"Example Company\","
-                + "\"address1\":\"123 Main St\","
-                + "\"address2\":\"Apartment 456\","
-                + "\"country\":\"US\","
-                + "\"zipcode\":\"12345\","
-                + "\"state\":\"CA\","
-                + "\"city\":\"San Francisco\","
-                + "\"mobile_number\":\"1234567890\""
-                + "}";
-
 
         String apiEndpoint = "/api/createAccount";
 
         // Perform API request and validate response
-        response= RestAssured.given()
+        response = RestAssured.given()
                 .contentType(ContentType.MULTIPART)
-                .multiPart("name", "Ahmetz")
-                .multiPart("email", "ahmetwdz@drm.com")
-                .multiPart("password", "Ahmet12345z")
+                .multiPart("name", ConfigurationReader.get("userName"))
+                .multiPart("email", ConfigurationReader.get("email"))
+                .multiPart("password", ConfigurationReader.get("password"))
                 .multiPart("title", "Mr")
                 .multiPart("birth_date", "10")
                 .multiPart("birth_month", "12")
@@ -60,6 +45,10 @@ public class PostToCreateRegisterUser extends Globals {
                 .multiPart("mobile_number", "32452168")
                 .when()
                 .post(apiEndpoint);
+    }
 
-   }
+    public void validateCreatedUser() {
+        Assert.assertEquals(201, response.jsonPath().getInt("responseCode"));
+        Assert.assertEquals("User created!", response.jsonPath().getString("message"));
+    }
 }

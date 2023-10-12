@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class GetAllProductsList extends Globals {
-    public void getAllProductsList(){
+
+    public void getAllProductsList() {
         response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
@@ -17,7 +18,7 @@ public class GetAllProductsList extends Globals {
                 .get("/api/productsList");
     }
 
-    public void validateThatAllProductsAreListed(){
+    public void validateThatAllProductsAreListed() {
         Assert.assertEquals(200, response.statusCode());
 
         List<Map> products = response.jsonPath().getList("products");

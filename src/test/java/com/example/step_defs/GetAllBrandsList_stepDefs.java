@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class GetAllBrandsList_stepDefs {
+
     GetAllBrandsList getAllBrandsList = new GetAllBrandsList();
 
     @When("Get All Brands List")
@@ -16,5 +17,4 @@ public class GetAllBrandsList_stepDefs {
     public void validate_that_all_brands_are_listed() {
         getAllBrandsList.validateThatAllBrands();
     }
-
 }
