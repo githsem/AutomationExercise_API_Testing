@@ -16,6 +16,4 @@ public class PutToAllBrandsList_stepDefs {
     public void validate_that_response_message() {
         putToAllBrandsList.validateThatPostRequestMethod();
     }
-
-
 }

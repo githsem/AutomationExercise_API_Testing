@@ -3,7 +3,6 @@ package com.example.step_defs;
 import com.example.services.GetAllProductsList;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 public class GetAllProductsList_stepDefs {
 
@@ -18,5 +17,4 @@ public class GetAllProductsList_stepDefs {
     public void validate_that_all_products_are_listed() {
         getAllProductsList.validateThatAllProductsAreListed();
     }
-
 }

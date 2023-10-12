@@ -3,38 +3,17 @@ package com.example.services;
 import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class PostToCreateRegisterUser extends Globals {
 
 
-   @Test
     public void postToCreateRegisterUser() {
         // API Base URL
         RestAssured.baseURI = "https://automationexercise.com";
-
-        // JSON Request Body
-        String requestBody = "{"
-                + "\"name\":\"John Doreca\","
-                + "\"email\":\"johndorecaa@example.com\","
-                + "\"password\":\"securedpassword\","
-                + "\"title\":\"Mr\","
-                + "\"birth_date\":\"01\","
-                + "\"birth_month\":\"01\","
-                + "\"birth_year\":\"1990\","
-                + "\"firstname\":\"John\","
-                + "\"lastname\":\"Dorec\","
-                + "\"company\":\"Example Company\","
-                + "\"address1\":\"123 Main St\","
-                + "\"address2\":\"Apartment 456\","
-                + "\"country\":\"US\","
-                + "\"zipcode\":\"12345\","
-                + "\"state\":\"CA\","
-                + "\"city\":\"San Francisco\","
-                + "\"mobile_number\":\"1234567890\""
-                + "}";
-
 
         String apiEndpoint = "/api/createAccount";
 
@@ -42,7 +21,7 @@ public class PostToCreateRegisterUser extends Globals {
         response= RestAssured.given()
                 .contentType(ContentType.MULTIPART)
                 .multiPart("name", "Ahmetz")
-                .multiPart("email", "ahmetwdz@drm.com")
+                .multiPart("email", "ahmetwdze@drm.com")
                 .multiPart("password", "Ahmet12345z")
                 .multiPart("title", "Mr")
                 .multiPart("birth_date", "10")
@@ -60,6 +39,10 @@ public class PostToCreateRegisterUser extends Globals {
                 .multiPart("mobile_number", "32452168")
                 .when()
                 .post(apiEndpoint);
-
    }
+
+    public void validateCreatedUser() {
+        Assert.assertEquals(201, response.jsonPath().getInt("responseCode"));
+        Assert.assertEquals("User created!", response.jsonPath().getString("message"));
+    }
 }

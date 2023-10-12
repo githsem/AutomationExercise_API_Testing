@@ -12,6 +12,7 @@ public class GetUserAccountDetailByEmail_stepDefs {
     public void get_to_user_account_detail_by_email() {
         getUserAccountDetailByEmail.GetUserAccountDetailByEmail();
     }
+
     @Then("Validate User Detail")
     public void validate_user_detail() {
         getUserAccountDetailByEmail.validateUserDetail();
