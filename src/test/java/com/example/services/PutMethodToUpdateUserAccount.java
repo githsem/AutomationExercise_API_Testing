@@ -6,7 +6,8 @@ import io.restassured.http.ContentType;
 import org.junit.Assert;
 
 public class PutMethodToUpdateUserAccount extends Globals {
-    public void updateAccount(){
+
+    public void updateAccount() {
         response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.MULTIPART)
@@ -18,7 +19,7 @@ public class PutMethodToUpdateUserAccount extends Globals {
                 .put("/api/updateAccount");
     }
 
-    public void validateUSerUpdated(){
+    public void validateUSerUpdated() {
         Assert.assertEquals(200, response.jsonPath().getInt("responseCode"));
         Assert.assertEquals("User updated!", response.jsonPath().getString("message"));
     }

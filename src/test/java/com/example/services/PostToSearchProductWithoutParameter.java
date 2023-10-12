@@ -7,16 +7,17 @@ import org.junit.Assert;
 
 public class PostToSearchProductWithoutParameter extends Globals {
 
-    public void postToSearchProductWithoutParameter(){
+    public void postToSearchProductWithoutParameter() {
 
-        response=RestAssured.given()
+        response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/api/searchProduct");
     }
-    public void validateThatProductSearchedWithoutParameter(){
-        Assert.assertEquals(400,response.jsonPath().getInt("responseCode"));
+
+    public void validateThatProductSearchedWithoutParameter() {
+        Assert.assertEquals(400, response.jsonPath().getInt("responseCode"));
         Assert.assertEquals("Bad request, search_product parameter is missing in POST request.", response.jsonPath().getString("message"));
     }
 }

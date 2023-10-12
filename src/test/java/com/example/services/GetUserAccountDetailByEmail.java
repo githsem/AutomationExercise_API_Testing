@@ -7,7 +7,7 @@ import org.junit.Assert;
 
 public class GetUserAccountDetailByEmail extends Globals {
 
-    public void GetUserAccountDetailByEmail(){
+    public void GetUserAccountDetailByEmail() {
         response = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
@@ -16,7 +16,7 @@ public class GetUserAccountDetailByEmail extends Globals {
                 .get("/api/getUserDetailByEmail");
     }
 
-    public void validateUserDetail(){
+    public void validateUserDetail() {
 
         Assert.assertEquals(200, response.jsonPath().getInt("responseCode"));
 
@@ -25,6 +25,5 @@ public class GetUserAccountDetailByEmail extends Globals {
 
         //validate city
         Assert.assertEquals("Berlin", response.jsonPath().getString("user.city"));
-
     }
 }

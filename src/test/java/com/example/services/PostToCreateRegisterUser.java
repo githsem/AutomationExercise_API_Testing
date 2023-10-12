@@ -4,21 +4,20 @@ import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
 
 public class PostToCreateRegisterUser extends Globals {
 
 
     public void postToCreateRegisterUser() {
+
         // API Base URL
         RestAssured.baseURI = "https://automationexercise.com";
 
         String apiEndpoint = "/api/createAccount";
 
         // Perform API request and validate response
-        response= RestAssured.given()
+        response = RestAssured.given()
                 .contentType(ContentType.MULTIPART)
                 .multiPart("name", "Ahmetz")
                 .multiPart("email", "ahmetwdze@drm.com")
@@ -39,7 +38,7 @@ public class PostToCreateRegisterUser extends Globals {
                 .multiPart("mobile_number", "32452168")
                 .when()
                 .post(apiEndpoint);
-   }
+    }
 
     public void validateCreatedUser() {
         Assert.assertEquals(201, response.jsonPath().getInt("responseCode"));
