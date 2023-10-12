@@ -8,8 +8,8 @@ public class PostToVerifyLoginWithoutEmailParameter_stepDefs {
 
     PostToVerifyLoginWithoutEmail postToVerifyLoginWithoutEmail=new PostToVerifyLoginWithoutEmail();
 
-    @When("Post to login witout email")
-    public void post_to_login_witout_email() {
+    @When("Post to login without email")
+    public void post_to_login_without_email() {
         postToVerifyLoginWithoutEmail.postToVerifyLoginWithoutEmail();
     }
     @Then("Verify that invalid result")
