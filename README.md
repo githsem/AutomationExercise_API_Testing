@@ -1,4 +1,4 @@
-# AutomationExercise_API_Testing
+# Automation Exercise API Testing
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/githsem/AutomationExercise_API_Testing)
 ![GitHub](https://img.shields.io/github/license/githsem/AutomationExercise_API_Testing)
@@ -34,13 +34,13 @@ Before running the project, make sure you have the following prerequisites insta
    ```shell
    git clone https://github.com/githsem/AutomationExercise_API_Testing
 
-   Open the project in your preferred IDE.
+2. Open the project in your preferred IDE.
 
-Set up the required dependencies using Maven.
+3. Set up the required dependencies using Maven.
 
-Update the test configurations, such as the API endpoints and request parameters, in the appropriate test files.
+4. Update the test configurations, such as the API endpoints and request parameters, in the appropriate test files.
 
-Run the tests by using JUnit or the test runner provided by your IDE.
+5. Run the tests by using JUnit or the test runner provided by your IDE.
 
 ## Usage
 You can use this project as a template to create your own API testing framework. Customize the test cases and configurations to match your specific requirements. Here are some key points to get started:
