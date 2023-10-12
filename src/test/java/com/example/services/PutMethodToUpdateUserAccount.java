@@ -1,5 +1,6 @@
 package com.example.services;
 
+import com.example.utilities.ConfigurationReader;
 import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -11,9 +12,9 @@ public class PutMethodToUpdateUserAccount extends Globals {
         response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.MULTIPART)
-                .multiPart("name", "hans")
-                .multiPart("email", "hans@hans.com")
-                .multiPart("password", "Test1234")
+                .multiPart("name", ConfigurationReader.get("userName"))
+                .multiPart("email", ConfigurationReader.get("email"))
+                .multiPart("password", ConfigurationReader.get("password"))
                 .multiPart("city", "Berlin")
                 .when()
                 .put("/api/updateAccount");

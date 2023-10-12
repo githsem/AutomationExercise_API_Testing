@@ -1,5 +1,6 @@
 package com.example.services;
 
+import com.example.utilities.ConfigurationReader;
 import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -9,20 +10,18 @@ public class DeleteUserAccount extends Globals {
 
     public void DeleteUserAccountApi() {
 
-        // Request Parameters
-        String email = "ahmetwdy@drm.com";
-        String password = "Ahmet12345y";
-
-        // API Endpoint
-        String apiEndpoint = "/api/deleteAccount";
-
         // Perform API request and validate response
         response = RestAssured.given()
                 .contentType(ContentType.MULTIPART)
-                .multiPart("email", email)
-                .multiPart("password", password)
+                .multiPart("email", ConfigurationReader.get("email"))
+                .multiPart("password", ConfigurationReader.get("password"))
                 .when()
-                .delete(apiEndpoint);
+                .delete("/api/deleteAccount");
+
+        //clear configurationReader
+        ConfigurationReader.set("userName","");
+        ConfigurationReader.set("email","");
+        ConfigurationReader.set("password","");
     }
 
     public void verifyAccountUser() {

@@ -1,5 +1,6 @@
 package com.example.services;
 
+import com.example.utilities.ConfigurationReader;
 import com.example.utilities.Globals;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -11,8 +12,8 @@ public class PostToVerifyLoginwithValidDetails extends Globals {
         response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.MULTIPART)
-                .multiPart("email", "mike01@gmail.com")
-                .multiPart("password", "Test1234")
+                .multiPart("email", ConfigurationReader.get("email"))
+                .multiPart("password", ConfigurationReader.get("password"))
                 .when()
                 .post("/api/verifyLogin");
     }
